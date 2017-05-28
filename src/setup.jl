@@ -23,7 +23,7 @@ if(~isdir(dir))  ## If no dated output folder exists
 	mkdir(dir)  ## Create new empty dated output folder
 end
 
-cp(joinpath(Pkg.dir(),"EoM_TeX.jl","src","report"),joinpath(pwd(),dir_output))  ## Create output folder date/time
+cp(joinpath(Pkg.dir(),"EoM_TeX","src","report"),joinpath(pwd(),dir_output))  ## Create output folder date/time
 
 dir_output
 
