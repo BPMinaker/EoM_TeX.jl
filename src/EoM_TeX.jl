@@ -1,7 +1,8 @@
 ##__precompile__()
 
 module EoM_TeX
-export setup
+export write_report
+
 export tex_bode_pgfplot
 export tex_bode3_pgfplot
 export tex_eig_pgfplot
@@ -12,8 +13,7 @@ export tex_sstf_pgfplot
 export tex_sstf_pgftable
 
 
-include("setup.jl")
-
+include("write_report.jl")
 include(joinpath("tex","tex_bode_pgfplot.jl"))
 include(joinpath("tex","tex_bode3_pgfplot.jl"))
 include(joinpath("tex","tex_eig_pgfplot.jl"))
