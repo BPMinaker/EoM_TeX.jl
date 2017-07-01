@@ -1,16 +1,19 @@
-##__precompile__()
+#__precompile__()
 
 module EoM_TeX
+
+import EoM
+
 export write_report
 
-export tex_bode_pgfplot
-export tex_bode3_pgfplot
-export tex_eig_pgfplot
-export tex_eig_pgftable
-export tex_hsv_pgfplot
-export tex_hsv_pgftable
-export tex_sstf_pgfplot
-export tex_sstf_pgftable
+# export tex_bode_pgfplot
+# export tex_bode3_pgfplot
+# export tex_eig_pgfplot
+# export tex_eig_pgftable
+# export tex_hsv_pgfplot
+# export tex_hsv_pgftable
+# export tex_sstf_pgfplot
+# export tex_sstf_pgftable
 
 
 include("write_report.jl")
