@@ -47,7 +47,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/mass_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -66,7 +66,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/damping_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -85,7 +85,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/stiffness_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -104,7 +104,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/velocity_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -123,7 +123,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/forcing_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -142,7 +142,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/forcing_rate_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -160,7 +160,7 @@ The system is subject to constraints
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=8,dec sep align,column name={Value}}]
+% columns/2/.style={fixed,fixed zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/jacobian_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -178,7 +178,7 @@ The system is subject to constraints
 \begin{Bmatrix}
 {\bm x}\\ {\bm u}\end{Bmatrix}
 \]
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\A,
@@ -193,7 +193,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\B,
@@ -208,7 +208,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\C,
@@ -223,7 +223,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\D,
@@ -238,7 +238,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\E,
@@ -264,12 +264,12 @@ typeset=false]
 \begin{Bmatrix}
 {\bm x}\\ {\bm u}\end{Bmatrix}
 \]
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\Am,
 typeset=false]
-{unformatted/Amin.out}
+{unformatted/Am.out}
 \begin{tiny}
 \[
 {\mathbf A}=
@@ -279,12 +279,12 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\Bm,
 typeset=false]
-{unformatted/Bmin.out}
+{unformatted/Bm.out}
 \begin{tiny}
 \[
 {\mathbf B}=
@@ -294,12 +294,12 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\Cm,
 typeset=false]
-{unformatted/Cmin.out}
+{unformatted/Cm.out}
 \begin{tiny}
 \[
 {\mathbf C}=
@@ -309,12 +309,12 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=8,dec sep align,
+\pgfplotstabletypeset[fixed,fixed zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\Dm,
 typeset=false]
-{unformatted/Dmin.out}
+{unformatted/Dm.out}
 \begin{tiny}
 \[
 {\mathbf D}=
