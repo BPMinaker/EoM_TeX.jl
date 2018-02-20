@@ -30,9 +30,9 @@ end
 tp="\\title{\nEoM Analysis\\\\\n$(the_system[1].name)\n\\\\\n}\n"
 tp*="\\author{\nJohn Smith: ID 12345678\n\\\\\nJane Smith: ID 87654321\n\\\\\n}\n"
 out=joinpath(dir_output,"titlepage.tex")
-open(out,"w") do file
-	write(file,tp)
-end
+file=open(out,"w")
+write(file,tp)
+close(file)
 
 rprt="\\chapter{Analysis}\n"
 rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
