@@ -52,7 +52,7 @@ every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\A,
 typeset=false]
-{unformatted/A.out}
+{unformatted/dss/A.out}
 \begin{tiny}
 \[
 {\mathbf A}=
@@ -67,7 +67,7 @@ every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\B,
 typeset=false]
-{unformatted/B.out}
+{unformatted/dss/B.out}
 \begin{tiny}
 \[
 {\mathbf B}=
@@ -82,7 +82,7 @@ every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\C,
 typeset=false]
-{unformatted/C.out}
+{unformatted/dss/C.out}
 \begin{tiny}
 \[
 {\mathbf C}=
@@ -97,7 +97,7 @@ every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\D,
 typeset=false]
-{unformatted/D.out}
+{unformatted/dss/D.out}
 \begin{tiny}
 \[
 {\mathbf D}=
@@ -112,7 +112,7 @@ every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\E,
 typeset=false]
-{unformatted/E.out}
+{unformatted/dss/E.out}
 \begin{tiny}
 \[
 {\mathbf E}=
@@ -122,77 +122,151 @@ typeset=false]
 \]
 \end{tiny}
 
-% \noindent The reduced state space equations:
-% \[
-% \begin{Bmatrix}
-% \dot{\bm x}\\ {\bm y}
-% \end{Bmatrix}
-% =\begin{bmatrix}
-% \mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D}
-% \end{bmatrix}
-% \begin{Bmatrix}
-% {\bm x}\\ {\bm u}\end{Bmatrix}
-% \]
-% \pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
-% every head row/.style={output empty row},
-% every last row/.style={after row={}},
-% write to macro=\Am,
-% typeset=false]
-% {unformatted/Am.out}
-% \begin{tiny}
-% \[
-% {\mathbf A}=
-% \left[
-% \Am
-% \right]
-% \]
-% \end{tiny}
-%
-% \pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
-% every head row/.style={output empty row},
-% every last row/.style={after row={}},
-% write to macro=\Bm,
-% typeset=false]
-% {unformatted/Bm.out}
-% \begin{tiny}
-% \[
-% {\mathbf B}=
-% \left[
-% \Bm
-% \right]
-% \]
-% \end{tiny}
-%
-% \pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
-% every head row/.style={output empty row},
-% every last row/.style={after row={}},
-% write to macro=\Cm,
-% typeset=false]
-% {unformatted/Cm.out}
-% \begin{tiny}
-% \[
-% {\mathbf C}=
-% \left[
-% \Cm
-% \right]
-% \]
-% \end{tiny}
-%
-% \pgfplotstabletypeset[sci,sci zerofill,precision=4,dec sep align,
-% every head row/.style={output empty row},
-% every last row/.style={after row={}},
-% write to macro=\Dm,
-% typeset=false]
-% {unformatted/Dm.out}
-% \begin{tiny}
-% \[
-% {\mathbf D}=
-% \left[
-% \Dm
-% \right]
-% \]
-% \end{tiny}
-%
+\noindent The reduced state space equations:
+\[
+\begin{Bmatrix}
+\dot{\bm x}\\ {\bm y}
+\end{Bmatrix}
+=\begin{bmatrix}
+\mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D}
+\end{bmatrix}
+\begin{Bmatrix}
+{\bm x}\\ {\bm u}\end{Bmatrix}
+\]
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\A,
+typeset=false]
+{unformatted/ss/A.out}
+\begin{tiny}
+\[
+{\mathbf A}=
+\left[
+\A
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\B,
+typeset=false]
+{unformatted/ss/B.out}
+\begin{tiny}
+\[
+{\mathbf B}=
+\left[
+\B
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\C,
+typeset=false]
+{unformatted/ss/C.out}
+\begin{tiny}
+\[
+{\mathbf C}=
+\left[
+\C
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=4,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\D,
+typeset=false]
+{unformatted/ss/D.out}
+\begin{tiny}
+\[
+{\mathbf D}=
+\left[
+\D
+\right]
+\]
+\end{tiny}
+
+
+\noindent The Jordan minimal state space equations:
+\[
+\begin{Bmatrix}
+\dot{\bm x}\\ {\bm y}
+\end{Bmatrix}
+=\begin{bmatrix}
+\mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D}
+\end{bmatrix}
+\begin{Bmatrix}
+{\bm x}\\ {\bm u}\end{Bmatrix}
+\]
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\A,
+typeset=false]
+{unformatted/jordan/A.out}
+\begin{tiny}
+\[
+{\mathbf A}=
+\left[
+\A
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\B,
+typeset=false]
+{unformatted/jordan/B.out}
+\begin{tiny}
+\[
+{\mathbf B}=
+\left[
+\B
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\C,
+typeset=false]
+{unformatted/jordan/C.out}
+\begin{tiny}
+\[
+{\mathbf C}=
+\left[
+\C
+\right]
+\]
+\end{tiny}
+
+\pgfplotstabletypeset[sci,sci zerofill,precision=4,dec sep align,
+every head row/.style={output empty row},
+every last row/.style={after row={}},
+write to macro=\D,
+typeset=false]
+{unformatted/jordan/D.out}
+\begin{tiny}
+\[
+{\mathbf D}=
+\left[
+\D
+\right]
+\]
+\end{tiny}
+
+
+
 % \begin{tiny}
 % \input{unformatted/Amp.out}
 % \input{unformatted/Bmp.out}

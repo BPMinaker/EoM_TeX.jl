@@ -68,9 +68,11 @@ if(is_linux())
 
 	verbose && println("Running LaTeX...")
 
-	cmd="cd $(dir_output); /usr/bin/pdflatex -shell-escape -interaction batchmode report.tex"
+	cmd="cd $(dir_output); /usr/bin/pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
 	run(`bash -c $cmd`)
 	run(`bash -c $cmd`)
+
+	verbose && println("Done.")
 
 end
 

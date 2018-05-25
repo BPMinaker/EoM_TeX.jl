@@ -4,7 +4,7 @@ Replace this text with the introduction of your report.
 
 \section{System Description}
 
-The properties of the bodies are given in Tables~\ref{bodycoords}~and~\ref{bodyinertia}.  The properties of the connections are given in Tables~\ref{pointcoords},~\ref{linecoords},~and~\ref{connectcoords}.
+The properties of the bodies are given in Tables~\ref{bodycoords} and~\ref{bodyinertia}.  The properties of the connections are given in Tables~\ref{pointcoords} and~\ref{connectcoords}.
 
 \begin{center}
 \begin{footnotesize}
@@ -49,18 +49,18 @@ after row=\midrule}]{pointdata.out}
 \end{footnotesize}
 \end{center}
 
-\begin{center}
-\begin{footnotesize}
-\pgfplotstabletypeset[%
-begin table=\begin{longtable},
-end table=\end{longtable},
-every head row/.style={output empty row,
-before row={\caption{Connection Locations}\label{linecoords}\\
-\toprule No. & Connection Name &
-\multicolumn{6}{c}{Location [\si{\m}]} & \multicolumn{6}{c}{Location [\si{\m}]}\\},
-after row=\midrule}]{linedata.out}
-\end{footnotesize}
-\end{center}
+% \begin{center}
+% \begin{footnotesize}
+% \pgfplotstabletypeset[%
+% begin table=\begin{longtable},
+% end table=\end{longtable},
+% every head row/.style={output empty row,
+% before row={\caption{Connection Locations}\label{linecoords}\\
+% \toprule No. & Connection Name &
+% \multicolumn{6}{c}{Location [\si{\m}]} & \multicolumn{6}{c}{Location [\si{\m}]}\\},
+% after row=\midrule}]{linedata.out}
+% \end{footnotesize}
+% \end{center}
 
 \begin{center}
 \begin{footnotesize}
