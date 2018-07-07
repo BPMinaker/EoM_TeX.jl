@@ -72,7 +72,7 @@ if(is_linux())
 	run(`bash -c $cmd`)
 	run(`bash -c $cmd`)
 
-	verbose && println("Done.")
+	verbose && println("LaTeX complete.")
 
 end
 
