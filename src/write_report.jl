@@ -21,7 +21,7 @@ output_names=broadcast(EoM.name,the_system[1].sensors)
 nin=length(input_names)
 nout=length(output_names)
 
-src=joinpath(Pkg.dir(),"EoM_TeX","src","report")
+src=joinpath(dirname(pathof(EoM_TeX)),"report")
 list=readdir(src)
 for i in list
 	cp(joinpath(src,i),joinpath(pwd(),dir_output,i))  ## Create output folder date/time
