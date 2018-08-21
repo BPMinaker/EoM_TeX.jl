@@ -64,7 +64,7 @@ open(out,"w") do file
 	write(file,rprt)
 end
 
-if(is_linux())
+if(Sys.islinux())
 
 	verbose && println("Running LaTeX...")
 
