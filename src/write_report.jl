@@ -1,4 +1,4 @@
-function write_report(dir_output,the_system;verbose=false,dir_raw="unformatted")
+function write_report(dir_output,the_system;verbose=false,dir_raw="unformatted",build=true)
 ## Copyright (C) 2017, Bruce Minaker
 ## write_report.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -64,11 +64,11 @@ open(out,"w") do file
 	write(file,rprt)
 end
 
-if(Sys.islinux())
+if(Sys.islinux() && build)
 
 	verbose && println("Running LaTeX...")
 
-	cmd="cd $(dir_output); /usr/bin/pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
+	cmd="cd $(dir_output); pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
 	run(`bash -c $cmd`)
 	run(`bash -c $cmd`)
 
