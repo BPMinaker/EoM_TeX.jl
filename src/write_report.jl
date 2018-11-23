@@ -42,7 +42,7 @@ if(length(the_system)>1)
 	if(nin*nout<16)
 		rprt*=tex_bode3_pgfplot(input_names,output_names)  ## Bode plots, but 3D
 		rprt*=tex_sstf_pgfplot(input_names,output_names)  ## Plot the steady state results
-		rprt*=tex_hsv_pgfplot()
+#		rprt*=tex_hsv_pgfplot()
 	end
 else
 	rprt*=tex_eig_pgftable()
@@ -55,7 +55,7 @@ else
 	end
 
 	rprt*=tex_sstf_pgftable()  ## Print the steady state results
-	rprt*=tex_hsv_pgftable()
+#	rprt*=tex_hsv_pgftable()
 end
 rprt*="\\input{load}"
 
