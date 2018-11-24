@@ -47,7 +47,8 @@ The system is subject to constraints
 \begin{Bmatrix}
 {\bm x}\\ {\bm u}\end{Bmatrix}
 \]
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\setlength{\tabcolsep}{2pt}
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\A,
@@ -62,7 +63,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\B,
@@ -77,7 +78,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\C,
@@ -92,7 +93,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\D,
@@ -107,7 +108,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\E,
@@ -133,7 +134,7 @@ typeset=false]
 \begin{Bmatrix}
 {\bm x}\\ {\bm u}\end{Bmatrix}
 \]
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\A,
@@ -148,7 +149,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\B,
@@ -163,7 +164,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\C,
@@ -178,7 +179,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=4,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\D,
@@ -205,7 +206,7 @@ typeset=false]
 \begin{Bmatrix}
 {\bm x}\\ {\bm u}\end{Bmatrix}
 \]
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\A,
@@ -220,7 +221,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\B,
@@ -235,7 +236,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=6,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\C,
@@ -250,7 +251,7 @@ typeset=false]
 \]
 \end{tiny}
 
-\pgfplotstabletypeset[sci,sci zerofill,precision=4,dec sep align,
+\pgfplotstabletypeset[sci,sci e,sci zerofill,precision=4,dec sep align,
 every head row/.style={output empty row},
 every last row/.style={after row={}},
 write to macro=\D,
@@ -292,7 +293,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/mass_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -311,7 +312,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/damping_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -330,7 +331,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/stiffness_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -349,7 +350,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/velocity_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -368,7 +369,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/forcing_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -387,7 +388,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/forcing_rate_matrix.out}
 % \end{center}
 % \end{footnotesize}
@@ -405,7 +406,7 @@ typeset=false]
 % display columns/5/.style={select equal part entry of={1}{2}},
 % columns/0/.style={int detect, column type=c,column name={Row}},
 % columns/1/.style={int detect, column type=c,column name={Column}},
-% columns/2/.style={sci,sci zerofill,precision=4,dec sep align,column name={Value}}]
+% columns/2/.style={sci,sci e,sci zerofill,precision=4,dec sep align,column name={Value}}]
 % {unformatted/jacobian_matrix.out}
 % \end{center}
 % \end{footnotesize}
