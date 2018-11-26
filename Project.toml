@@ -1,0 +1,7 @@
+name = "EoM_TeX"
+uuid = "27bd48f2-f19a-11e8-05ac-9ddfb96ea9e0"
+authors = ["BPMinaker <bminaker@uwindsor.ca>"]
+version = "0.1.0"
+
+[deps]
+EoM = "25d7ee20-f19a-11e8-093a-7b526cbd2d90"
