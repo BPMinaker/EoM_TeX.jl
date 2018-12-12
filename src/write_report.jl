@@ -68,9 +68,13 @@ if(Sys.islinux() && build)
 
 	verbose && println("Running LaTeX...")
 
-	cmd="cd $(dir_output); pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
-	run(`bash -c $cmd`)
-	run(`bash -c $cmd`)
+	try
+		cmd="cd $(dir_output); pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
+		run(`bash -c $cmd`)
+		run(`bash -c $cmd`)
+	catch
+		println("Error running pdflatex.  Skipping.")
+	end
 
 	verbose && println("LaTeX complete.")
 
