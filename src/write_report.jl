@@ -64,6 +64,8 @@ open(out,"w") do file
 	write(file,rprt)
 end
 
+verbose && println("Report complete.")
+
 if(Sys.islinux() && build)
 
 	verbose && println("Running LaTeX...")
