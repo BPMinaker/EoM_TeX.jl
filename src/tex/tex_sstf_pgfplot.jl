@@ -28,7 +28,7 @@ for i=1:nin
 	s*="\\end{axis}\n"
 	s*="\\end{tikzpicture}\n"
 	s*="\\caption[Steady state transfer functions]{Steady state transfer functions.}\n"
-	s*="\\label{sstf_plot_' num2str(i) '}\n"
+	s*="\\label{sstf_plot_$i}\n"
 	s*="\\end{center}\n"
 	s*="\\end{figure}\n\n"
 end
