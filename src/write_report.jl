@@ -1,4 +1,4 @@
-function write_report(dir_output,the_system;verbose=false,dir_raw="unformatted",build=true)
+function write_report(dir_output,the_list;verbose=false,dir_raw="unformatted",build=true)
 ## Copyright (C) 2017, Bruce Minaker
 ## write_report.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,8 +14,8 @@ function write_report(dir_output,the_system;verbose=false,dir_raw="unformatted",
 
 verbose && println("Writing report...")
 
-input_names=broadcast(EoM.name,the_system[1].actuators)
-output_names=broadcast(EoM.name,the_system[1].sensors)
+input_names=broadcast(EoM.name,the_list[1].system.actuators)
+output_names=broadcast(EoM.name,the_list[1].system.sensors)
 
 #n=size(result[1].A,1)
 nin=length(input_names)
@@ -24,20 +24,20 @@ nout=length(output_names)
 src=joinpath(dirname(pathof(EoM_TeX)),"report")
 list=readdir(src)
 for i in list
-	cp(joinpath(src,i),joinpath(pwd(),dir_output,i))  ## Create output folder date/time
+	cp(joinpath(src,i),joinpath(dir_output,i))  ## Create output folder date/time
 end
 
-tp="\\title{\nEoM Analysis\\\\\n$(the_system[1].name)\n\\\\\n}\n"
+tp="\\title{\nEoM Analysis\\\\\n$(the_list[1].system.name)\n\\\\\n}\n"
 tp*="\\author{\nJohn Smith: ID 12345678\n\\\\\nJane Smith: ID 87654321\n\\\\\n}\n"
 out=joinpath(dir_output,"titlepage.tex")
-file=open(out,"w")
-write(file,tp)
-close(file)
+open(out,"w") do handle
+	write(handle,tp)
+end
 
 rprt="\\chapter{Analysis}\n"
 rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
 
-if(length(the_system)>1)
+if(length(the_list)>1)
 	rprt*=tex_eig_pgfplot() ## Plot the eigenvalues
 	if(nin*nout<16)
 		rprt*=tex_bode3_pgfplot(input_names,output_names)  ## Bode plots, but 3D
@@ -71,7 +71,7 @@ if(Sys.islinux() && build)
 	verbose && println("Running LaTeX...")
 
 	try
-		cmd="cd $(dir_output); pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
+		cmd="cd \"$(dir_output)\"; pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
 		run(`bash -c $cmd`)
 		run(`bash -c $cmd`)
 	catch
