@@ -1,4 +1,4 @@
-function tex_eig_pgftable()
+function tex_eig_pgftable(;folder=".",labels=["T:eigen" "T:freq"])
 ## Copyright (C) 2017 Bruce Minaker
 ## tex_eig_table.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -12,20 +12,19 @@ function tex_eig_pgftable()
 ##
 ##--------------------------------------------------------------------
 
-s="\\section{Eigenvalue Analysis}\n"
-s*="The eigenvalue properties are given in Tables~\\ref{evals}~and~\\ref{evals-b}.\n\n"
+##s="The eigenvalue properties are given in Tables~\\ref{T:evals}~and~\\ref{T:evals-b}.\n\n"
 
-s*="\\begin{center}\n"
+s="\\begin{center}\n"
 s*="\\begin{footnotesize}\n"
 s*="\\pgfplotstabletypeset[%\n"
 s*="begin table=\\begin{longtable},\n"
 s*="end table=\\end{longtable},\n"
 s*="every head row/.style={\n"
-s*="before row={\\caption{Eigenvalues}\\label{evals}\\\\ \\toprule},\n"
+s*="before row={\\caption{Eigenvalues}\\label{"*labels[1]*"}\\\\ \\toprule},\n"
 s*="after row=\\midrule},\n"
 s*="every last row/.style={\n"
 s*="after row=\\bottomrule \\multicolumn{9}{l}{Note: oscillatory roots appear as complex conjugates.}},\n"
-s*="columns={num,real,imag,realhz,imaghz}]{eigen.out}\n"
+s*="columns={num,real,imag,realhz,imaghz}]{$folder/eigen.out}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
 
@@ -37,11 +36,11 @@ s*="\\pgfplotstabletypeset[%\n"
 s*="begin table=\\begin{longtable},\n"
 s*="end table=\\end{longtable},\n"
 s*="every head row/.style={\n"
-s*="before row={\\caption{Eigenvalue Analysis}\\label{evals-b}\\\\ \\toprule},\n"
+s*="before row={\\caption{Eigenvalue analysis}\\label{"*labels[2]*"}\\\\ \\toprule},\n"
 s*="after row=\\midrule},\n"
 s*="every last row/.style={\n"
 s*="after row=\\bottomrule \\multicolumn{9}{l}{Notes: a) oscillatory roots are listed twice, b) negative time constants denote unstable roots.}},\n"
-s*="columns={num,nfreq,zeta,tau,lambda}]{freq.out}\n"
+s*="columns={num,nfreq,zeta,tau,lambda}]{$folder/freq.out}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
 

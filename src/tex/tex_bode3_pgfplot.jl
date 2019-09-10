@@ -1,4 +1,4 @@
-function tex_bode3_pgfplot(ins,outs)
+function tex_bode3_pgfplot(ins,outs;folder=".",label="F:bode")
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_bode_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,7 +14,7 @@ function tex_bode3_pgfplot(ins,outs)
 
 nin=length(ins)
 nout=length(outs)
-s="\\section{Frequency Response Plots}\n"
+s=""
 
 for i=1:nin  ## For each input-output pair
 	for j=1:nout
@@ -25,17 +25,17 @@ for i=1:nin  ## For each input-output pair
 		s*="\\pgfplotsset{tick label style={font=\\scriptsize},label style={font=\\scriptsize},title style={font=\\small},xminorticks={false}}\n"
 		s*="\\begin{tikzpicture}\n"
 		s*="\\begin{semilogxaxis}[height=3in,width=4in,tick style={thin,black},view={45}{45},xlabel={Frequency [\\si{\\hertz}]},ylabel={Speed [\\si{\\m/\\s}]},zlabel={Transfer Function [\\si{\\decibel}]},enlargelimits=false,xlabel style={sloped like x axis}, ylabel style={sloped like y axis}]\n"
-		s*="\\addplot3[surf] table[x=frequency,y=speed,z=m$((i-1)*nout+j)]{bode.out};\n"
+		s*="\\addplot3[surf] table[x=frequency,y=speed,z=m$((i-1)*nout+j)]{$folder/bode.out};\n"
 		s*="\\end{semilogxaxis}\n"
 		s*="\\end{tikzpicture}\n"
 		s*="\\end{footnotesize}\n"
-		s*="\\caption{Frequency response: $(outs[j]) / $(ins[i])}\n"
-		s*="\\label{bode_plot_$((i-1)*nout+j)}\n"
 		s*="\\end{center}\n"
+		s*="\\caption{Frequency response: $(outs[j]) / $(ins[i])}\n"
+		s*="\\label{$(label)_$((i-1)*nout+j)}\n"
 		s*="\\end{figure}\n\n"
 	end
 end
-s*="\\clearpage\n\n"
+#s*="\\clearpage\n\n"
 
 s
 
