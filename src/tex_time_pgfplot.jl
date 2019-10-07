@@ -1,4 +1,4 @@
-function tex_time_pgfplot(outs;folder=".",label="F:time")
+function tex_time_pgfplot(outs;folder="output",label="F:time",n=1:1:length(outs),caption="")
 ## Copyright (C) 2019, Bruce Minaker
 ## tex_time_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -18,16 +18,18 @@ s="\\begin{figure}[htbp]\n"
 s*="\\begin{center}\n"
 s*="\\begin{footnotesize}\n"
 s*="\\begin{tikzpicture}\n"
-s*="\\begin{axis}[height=3in,width=5in,xmin=0,xlabel={Time [\\si{\\s}]},ylabel={Outputs},enlarge x limits=false,legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1,cycle list name=linestyles*]\n"
-for j=1:length(outs)
-	s*="\\addplot+[black,line width=1pt,mark=none] table[x index=0,y index=$j]{$folder/time.out};\n"
-	s*="\\addlegendentry{"*outs[j]*"}\n"
+s*="\\begin{axis}[height=3in,width=5in,xmin=0,enlarge x limits=false,"
+s*="xlabel={Time [\\si{\\s}]},ylabel={Outputs},"
+s*="legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1,cycle list name=linestyles*]\n"
+for j=1:length(n)
+	s*="\\addplot+[black,line width=1pt,mark=none] table[x index=0,y index=$(n[j])]{$folder/time.out};\n"
+	s*="\\addlegendentry{\$$(outs[j])\$}\n"
 end
 s*="\\end{axis}\n"
 s*="\\end{tikzpicture}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
-s*="\\caption[Time history]{Time history}\n"
+s*="\\caption[Time history]{\\textit{Time history.} $caption}\n"
 s*="\\label{$label}\n"
 s*="\\end{figure}\n"
 #s*="\\clearpage\n\n"

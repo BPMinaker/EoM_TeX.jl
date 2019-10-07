@@ -1,4 +1,4 @@
-function tex_eig_pgfplot(;folder=".",label="F:eigen")
+function tex_eig_pgfplot(;folder="output",label="F:eigen",caption="")
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_eig_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -16,15 +16,20 @@ function tex_eig_pgfplot(;folder=".",label="F:eigen")
 
 s="\\begin{figure}[htbp]\n"
 s*="\\begin{center}\n"
+s*="\\begin{footnotesize}\n"
 s*="\\begin{tikzpicture}\n"
-s*="\\begin{axis}[reverse legend,height=3in,width=5in,xmin=0,restrict y to domain=-20:20,restrict expr to domain={abs(y)}{0.001:100},xlabel={Speed [\\si{\\m/\\s}]},ylabel={Eigenvalue [\\si{\\radian/\\s}]},enlarge x limits=false,legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1]\n"
+s*="\\begin{axis}[reverse legend,height=3in,width=5in,xmin=0,clip limits=false,enlarge x limits=false,"
+s*="restrict y to domain=-20:65,restrict expr to domain={abs(y)}{0.001:100},"
+s*="xlabel={Speed [\\si{\\m/\\s}]},ylabel={Eigenvalue [\\si{\\radian/\\s}]},"
+s*="legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1]\n"
 s*="\\addplot+[only marks,mark=*,mark options={black,fill=white,scale=1,line width=0.5pt}] table[x=speed,y=imag]{$folder/eigen.out};\n"
 s*="\\addplot+[only marks,mark=*,mark options={black,scale=0.6,line width=1pt}] table[x=speed,y=real]{$folder/eigen.out};\n"
 s*="\\legend{Imaginary, Real}\n"
 s*="\\end{axis}\n"
 s*="\\end{tikzpicture}\n"
-s*="\\caption[Eigenvalues vs speed]{Eigenvalues vs speed.}\n"
+s*="\\caption[Eigenvalues]{\\textit{Eigenvalues.} $caption}\n"
 s*="\\label{$label}\n"
+s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
 s*="\\end{figure}\n"
 #s*="\\clearpage\n\n"

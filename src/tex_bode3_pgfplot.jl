@@ -30,7 +30,7 @@ for i=1:nin  ## For each input-output pair
 		s*="\\end{tikzpicture}\n"
 		s*="\\end{footnotesize}\n"
 		s*="\\end{center}\n"
-		s*="\\caption{Frequency response: $(outs[j]) / $(ins[i])}\n"
+		s*="\\caption{Frequency response:\$$(outs[j])/$(ins[i])\$}\n"
 		s*="\\label{$(label)_$((i-1)*nout+j)}\n"
 		s*="\\end{figure}\n\n"
 	end

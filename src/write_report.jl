@@ -14,8 +14,8 @@ function write_report(dir_output,the_list;verbose=false,dir_raw="unformatted",bu
 
 verbose && println("Writing report...")
 
-input_names=broadcast(EoM.name,the_list[1].system.actuators)
-output_names=broadcast(EoM.name,the_list[1].system.sensors)
+input_names=EoM.name.(the_list[1].system.actuators)
+output_names=EoM.name.(the_list[1].system.sensors)
 
 #n=size(result[1].A,1)
 nin=length(input_names)
@@ -38,23 +38,23 @@ rprt="\\chapter{Analysis}\n"
 rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
 
 if(length(the_list)>1)
-	rprt*=tex_eig_pgfplot() ## Plot the eigenvalues
+	rprt*=tex_eig_pgfplot(folder=".") ## Plot the eigenvalues
 	if(nin*nout<16)
 		rprt*=tex_bode3_pgfplot(input_names,output_names)  ## Bode plots, but 3D
-		rprt*=tex_sstf_pgfplot(input_names,output_names)  ## Plot the steady state results
+		rprt*=tex_sstf_pgfplot(the_list,ins=1:nin,outs=1:nout,folder=".")  ## Plot the steady state results
 #		rprt*=tex_hsv_pgfplot()
 	end
 else
-	rprt*=tex_eig_pgftable()
+	rprt*=tex_eig_pgftable(folder=".")
 
 #	rprt*='There are ' num2str(result{1}.data.dimension-result{1}.eom.rigid.rkr) ' degrees of freedom.  '];
 #	rprt*="There are $cmplx oscillatory modes, $dmpd damped modes, $nstbl unstable modes, and $rgd rigid body modes.\n\\pagebreak\n"
 
 	if(nin*nout<16)
-		rprt*=tex_bode_pgfplot(input_names,output_names)  ## Bode plots
+		rprt*=tex_bode_pgfplot(the_list,folder=".")  ## Bode plots
 	end
 
-	rprt*=tex_sstf_pgftable()  ## Print the steady state results
+	rprt*=tex_sstf_pgftable(folder=".")  ## Print the steady state results
 #	rprt*=tex_hsv_pgftable()
 end
 rprt*="\\input{load}"
