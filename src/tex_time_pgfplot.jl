@@ -1,4 +1,4 @@
-function tex_time_pgfplot(outs;folder="output",label="F:time",n=1:1:length(outs),caption="")
+function tex_time_pgfplot(outs;folder="output",label="F:time",n=1:1:length(outs),caption="",skip=1)
 ## Copyright (C) 2019, Bruce Minaker
 ## tex_time_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ s*="\\begin{center}\n"
 s*="\\begin{footnotesize}\n"
 s*="\\begin{tikzpicture}\n"
 s*="\\begin{axis}[height=3in,width=5in,xmin=0,enlarge x limits=false,"
+s*="each nth point=$skip,filter discard warning=false,unbounded coords=discard,"
 s*="xlabel={Time [\\si{\\s}]},ylabel={Outputs},"
 s*="legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1,cycle list name=linestyles*]\n"
 for j=1:length(n)
