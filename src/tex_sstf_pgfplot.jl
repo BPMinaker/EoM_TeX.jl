@@ -1,4 +1,4 @@
-function tex_sstf_pgfplot(sys;ins,outs,folder="output",label="F:sstf",caption="")
+function tex_sstf_pgfplot(systems;ins=1:1:length(systems[1].actuators),outs=1:1:length(systems[1].sensors),folder="data",label="F:sstf",caption="",name="Steady state transfer functions",short_name=name)
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_sstf_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -12,8 +12,8 @@ function tex_sstf_pgfplot(sys;ins,outs,folder="output",label="F:sstf",caption=""
 ##
 ##--------------------------------------------------------------------
 
-in_names=EoM.name.(sys[1].system.actuators)
-out_names=EoM.name.(sys[1].system.sensors)
+in_names=EoM.name.(systems[1].actuators)
+out_names=EoM.name.(systems[1].sensors)
 
 nin=length(in_names)
 nout=length(out_names)
@@ -36,7 +36,7 @@ s*="\\end{axis}\n"
 s*="\\end{tikzpicture}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
-s*="\\caption[Steady state transfer functions]{\\textit{Steady state transfer functions.} $caption}\n"
+s*="\\caption[$short_name]{\\textit{$name.} $caption}\n"
 s*="\\label{$label}\n"
 s*="\\end{figure}\n\n"
 

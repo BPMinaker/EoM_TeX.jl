@@ -1,4 +1,4 @@
-function write_report(dir_output,the_list;verbose=false,dir_raw="unformatted",build=true)
+function write_report(;title="Title",folder="output",content=["" "" "" ""],data="data",verbose=false,build=true,clean=true)
 ## Copyright (C) 2017, Bruce Minaker
 ## write_report.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,72 +14,99 @@ function write_report(dir_output,the_list;verbose=false,dir_raw="unformatted",bu
 
 verbose && println("Writing report...")
 
-input_names=EoM.name.(the_list[1].system.actuators)
-output_names=EoM.name.(the_list[1].system.sensors)
-
-#n=size(result[1].A,1)
-nin=length(input_names)
-nout=length(output_names)
-
-src=joinpath(dirname(pathof(EoM_TeX)),"report")
+src=joinpath(dirname(pathof(EoM_TeX)),"tex")
 list=readdir(src)
 for i in list
-	cp(joinpath(src,i),joinpath(dir_output,i))  ## Create output folder date/time
+	if ~isfile(joinpath(folder,i))
+		cp(joinpath(src,i),joinpath(folder,i))  ## fill output folder
+	end
 end
 
-tp="\\title{\nEoM Analysis\\\\\n$(the_list[1].system.name)\n\\\\\n}\n"
-tp*="\\author{\nJohn Smith: ID 12345678\n\\\\\nJane Smith: ID 87654321\n\\\\\n}\n"
-out=joinpath(dir_output,"titlepage.tex")
+rprt="\\title{\nEoM Analysis\\\\\n$title\n\\\\\n}\n"
+rprt*="\\author{\nJohn Smith: ID 12345678\n\\\\\n"
+rprt*="Jane Smith: ID 87654321\n\\\\\n}\n"
+rprt*="\\begin{titlingpage}\n"
+rprt*="\\vspace*{-0.35in}\n"
+rprt*="\\hspace{-1.05in}\n"
+rprt*="\\includegraphics[height=1.1in]{uwlogo}\n"
+rprt*="\\begin{center}\n"
+rprt*="\\vspace{1.5in}\n"
+rprt*="\\LARGE\n"
+rprt*="\\thetitle\n"
+rprt*="\\vspace{2in}\n"
+rprt*="\\large\n"
+rprt*="\\theauthor\n"
+rprt*="\\vspace{1in}\n"
+rprt*="\\today\n"
+rprt*="\\vfill\n"
+rprt*="\\end{center}\n"
+rprt*="\\end{titlingpage}\n"
+out=joinpath(folder,"titlepage.tex")
 open(out,"w") do handle
-	write(handle,tp)
+	write(handle,rprt)
 end
 
-rprt="\\chapter{Analysis}\n"
-rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
+rprt="\\chapter{Introduction}\n"
 
-if(length(the_list)>1)
-	rprt*=tex_eig_pgfplot(folder=".") ## Plot the eigenvalues
-	if(nin*nout<16)
-		rprt*=tex_bode3_pgfplot(input_names,output_names)  ## Bode plots, but 3D
-		rprt*=tex_sstf_pgfplot(the_list,ins=1:nin,outs=1:nout,folder=".")  ## Plot the steady state results
-#		rprt*=tex_hsv_pgfplot()
-	end
+if length(content[1])>0
+	rprt*=content[1]
 else
-	rprt*=tex_eig_pgftable(folder=".")
-
-#	rprt*='There are ' num2str(result{1}.data.dimension-result{1}.eom.rigid.rkr) ' degrees of freedom.  '];
-#	rprt*="There are $cmplx oscillatory modes, $dmpd damped modes, $nstbl unstable modes, and $rgd rigid body modes.\n\\pagebreak\n"
-
-	if(nin*nout<16)
-		rprt*=tex_bode_pgfplot(the_list,folder=".")  ## Bode plots
-	end
-
-	rprt*=tex_sstf_pgftable(folder=".")  ## Print the steady state results
-#	rprt*=tex_hsv_pgftable()
+	rprt*="Replace this text with the introduction of your report.  Add sections or subsections as appropriate.\n"
 end
-rprt*="\\input{load}"
-
-out=joinpath(dir_output,"analysis.tex")
+out=joinpath(folder,"introduction.tex")
 open(out,"w") do file
 	write(file,rprt)
 end
 
-verbose && println("Report complete.")
+rprt="\\chapter{Analysis}\n"
+if length(content[2])>0
+	rprt*=content[2]
+else
+	rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
+end
+out=joinpath(folder,"analysis.tex")
+open(out,"w") do file
+	write(file,rprt)
+end
 
-if(Sys.islinux() && build)
+rprt="\\chapter{Conclusions}\n"
+if length(content[3])>0
+	rprt*=content[3]
+else
+	rprt*="Replace this text with the body of your report.  Add sections or subsections as appropriate.\n"
+end
+out=joinpath(folder,"conclusions.tex")
+open(out,"w") do file
+	write(file,rprt)
+end
 
+
+
+rprt="\\chapter{Equations of Motion}\n"
+if length(content[4])>0
+	rprt*=content[4]
+end
+out=joinpath(folder,"appendix.tex")
+open(out,"w") do file
+	write(file,rprt)
+end
+
+verbose && println("Report source written.")
+
+@time if Sys.islinux() && build
 	verbose && println("Running LaTeX...")
-
 	try
-		cmd="cd \"$(dir_output)\"; pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
+		cmd="cd \"$(folder)\"; pdflatex -shell-escape -interaction batchmode report.tex > /dev/null"
 		run(`bash -c $cmd`)
 		run(`bash -c $cmd`)
+		if clean
+			cmd="cd \"$(folder)\"; rm *.lot *.lof *.log *.toc *.out *.aux *.auxlock"
+			run(`bash -c $cmd`)
+		end
 	catch
 		println("Error running pdflatex.  Skipping.")
 	end
-
 	verbose && println("LaTeX complete.")
-
 end
 
 end

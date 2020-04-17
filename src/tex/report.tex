@@ -20,7 +20,26 @@
 \usepackage[lcgreekalpha,slantedGreek]{libertinust1math}
 \useosf
 \newcommand{\bm}{\mathbfit}
+\renewcommand{\bf}{\mathbf}
 \usepackage[kerning]{microtype}
+\usepackage[scale=0.8]{sourcecodepro}
+
+\usepackage{upquote}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    upquote=true,
+    breaklines=true,
+    breakindent=0pt,
+    keepspaces=true,
+    showspaces=false,
+    columns=fullflexible,
+    showtabs=false,
+    showstringspaces=false,
+    escapeinside={(*@}{@*)},
+    extendedchars=true,
+}
+
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=black}
 \setcounter{MaxMatrixCols}{30}
@@ -46,7 +65,6 @@
 \begin{document}
 \frontmatter
 \include{titlepage}
-\include{titlingpage}
 \tableofcontents*
 \newpage
 \listoffigures*
@@ -57,7 +75,7 @@
 \pagestyle{eom}
 \include{introduction}
 \include{analysis}
-\include{conclusion}
+\include{conclusions}
 \appendix
 \include{appendix}
 \backmatter

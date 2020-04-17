@@ -1,4 +1,6 @@
-function tex_time_pgfplot(outs;folder="output",file="time.out",label="F:time",n=1:1:length(outs),caption="",xlabel="Time [\\si{\\s}]",ylabel="Outputs",skip=1,black=true,width=1.0)
+function tex_time_pgfplot(systems;series=[EoM.name.(systems[1].sensors);EoM.name.(systems[1].actuators)],folder=systems[1].name,file="time.out",n=1:1:length(series),m=Int32.(zeros(length(series))),label="F:time",caption="",xlabel="Time [\\si{\\s}]",ylabel="Outputs",name="Time history",short_name=name,skip=1,black=true,width=1.0)
+
+##function tex_time_pgfplot(outs;folder="output",file="time.out",label="F:time",n=1:1:length(outs),m=Int32.(zeros(length(outs))),caption="",xlabel="Time [\\si{\\s}]",ylabel="Outputs",name="Time history",short_name=name,skip=1,black=true,width=1.0)
 ## Copyright (C) 2019, Bruce Minaker
 ## tex_time_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -13,7 +15,6 @@ function tex_time_pgfplot(outs;folder="output",file="time.out",label="F:time",n=
 ##--------------------------------------------------------------------
 
 ## Write the tex necessary to include the plots
-
 
 s="\\begin{figure}[htbp]\n"
 s*="\\begin{center}\n"
@@ -31,14 +32,14 @@ else
 end
 s*="legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1]\n"
 for j=1:length(n)
-	s*="\\addplot+[$(c)line width=$(width)pt,mark=none] table[x index=0,y index=$(n[j])]{$folder/$file};\n"
-	s*="\\addlegendentry{\$$(outs[j])\$}\n"
+	s*="\\addplot+[$(c)line width=$(width)pt,mark=none] table[x index=$(m[j]),y index=$(n[j])]{$folder/$file};\n"
+	s*="\\addlegendentry{\$$(series[j])\$}\n"
 end
 s*="\\end{axis}\n"
 s*="\\end{tikzpicture}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
-s*="\\caption[Time history]{\\textit{Time history.} $caption}\n"
+s*="\\caption[$short_name]{\\textit{$name.} $caption}\n"
 s*="\\label{$label}\n"
 s*="\\end{figure}\n"
 #s*="\\clearpage\n\n"

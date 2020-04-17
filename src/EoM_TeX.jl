@@ -12,7 +12,11 @@ export tex_eig_pgftable
 export tex_sstf_pgfplot
 export tex_sstf_pgftable
 export tex_time_pgfplot
-export clean_tex
+export tex_equil_pgftable
+export tex_mass_props_pgftable
+export tex_joint_props_pgftable
+export tex_eqn
+export tex_state_space
 
 include("write_report.jl")
 include("tex_bode_pgfplot.jl")
@@ -22,14 +26,11 @@ include("tex_eig_pgftable.jl")
 include("tex_sstf_pgfplot.jl")
 include("tex_sstf_pgftable.jl")
 include("tex_time_pgfplot.jl")
+include("tex_equil_pgftable.jl")
+include("tex_mass_props_pgftable.jl")
+include("tex_joint_props_pgftable.jl")
+include("tex_eqn.jl")
+include("tex_state_space.jl")
 
-function clean_tex(;folder=".")
-
-for ext in [".lot",".lof",".log",".toc",".out",".aux"]
-	files=readdir(folder)
-	rm.(files[occursin.(ext,files)])
-end
-
-end
 
 end

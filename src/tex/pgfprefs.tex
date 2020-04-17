@@ -1,5 +1,6 @@
 \pgfkeys{/pgf/number format/.cd, sci generic={mantissa sep=\times,exponent={10^{#1}}}}
-\pgfplotsset{scaled y ticks=false, y tick label style={/pgf/number format/.cd, fixed, precision=3}, x tick label style={/pgf/number format/fixed}}
+\pgfplotscreateplotcyclelist{color list}{red,blue,orange,green,violet,cyan,teal,magenta}
+\pgfplotsset{x tick label style={/pgf/number format/fixed},y tick label style={/pgf/number format/.cd, fixed, precision=3},tick style={thin,black},scaled y ticks=false,extra y ticks={0},extra y tick style={grid=major},major y grid style={dotted,black},enlarge x limits=false}
 \pgfplotstableset{
 columns/num/.style={string type,column name={No.}},
 columns/name/.style={string type, column type=l},
@@ -28,20 +29,20 @@ columns/fx/.style={sci, sci zerofill, precision=4, dec sep align={c}, column typ
 columns/fy/.style={sci, sci zerofill, precision=4, dec sep align={c}, column type/.add={}{@{, }}},
 columns/fz/.style={sci, sci zerofill, precision=4, dec sep align={c}, column type/.add={}{@{; }}},
 columns/fxyz/.style={sci, sci zerofill, precision=4, dec sep align={c}},
-columns/nfreq/.style={sci, sci zerofill, precision=10, dec sep align, column name={Frequency ($\omega_\text{n}$) [\si{\hertz}]}},
-columns/zeta/.style={sci, sci zerofill, precision=10, dec sep align, column name={Damping Ratio ($\zeta$)}},
-columns/tau/.style={sci, sci zerofill, precision=10, dec sep align, column name={Time Constant ($\tau$) [\si{\s}]}},
-columns/lambda/.style={sci, sci zerofill, precision=10, dec sep align, column name={Wavelength ($\lambda$) [\si{\s}]}},
-columns/real/.style={sci, sci zerofill, precision=10, dec sep align, column name={Real [\si{\radian/\s}]}},
-columns/imag/.style={sci, sci zerofill, precision=10, dec sep align, column name={Imaginary [\si{\radian/\s}]}},
-columns/realhz/.style={sci, sci zerofill, precision=10, dec sep align, column name={Real [\si{\hertz}]}},
-columns/imaghz/.style={sci, sci zerofill, precision=10, dec sep align, column name={Imaginary [\si{\hertz}]}},
-columns/outputtoinput/.style={string type, column type=l, column name={Output/Input}},
-columns/gain/.style={sci, sci zerofill, precision=10, dec sep align, column name={Gain}},
+columns/nfreq/.style={sci,sci zerofill,precision=3,dec sep align,column name={$\omega_\text{n}$ [\si{\hertz}]}},
+columns/zeta/.style={sci,sci zerofill,precision=3,dec sep align,column name={$\zeta$}},
+columns/tau/.style={sci,sci zerofill,precision=3,dec sep align,column name={$\tau$ [\si{\s}]}},
+columns/lambda/.style={sci,sci zerofill,precision=3,dec sep align,column name={$\lambda$ [\si{\s}]}},
+columns/real/.style={sci,sci zerofill,precision=3,dec sep align,column name={Real [\si{\radian/\s}]}},
+columns/imag/.style={sci,sci zerofill,precision=3,dec sep align,column name={Imaginary [\si{\radian/\s}]}},
+columns/realhz/.style={sci,sci zerofill,precision=3,dec sep align,column name={Real [\si{\hertz}]}},
+columns/imaghz/.style={sci,sci zerofill,precision=3,dec sep align,column name={Imaginary [\si{\hertz}]}},
+columns/outputtoinput/.style={string type, column type=l,column name={Output/Input}},
+columns/gain/.style={sci, sci zerofill,precision=3,dec sep align,column name={Gain}},
 columns/hsv/.style={sci, sci zerofill, precision=10, dec sep align, column name={Hankel SV}},
 string replace={NaN}{},
 string replace={Inf}{},
 string replace={-Inf}{},
 empty cells with={--},
-every head row/.style={before row=\toprule,after row=\midrule},
-every last row/.style={after row=\bottomrule}}
+every head row/.style={before row={\toprule},after row={\midrule}},
+every last row/.style={after row={\bottomrule}}}

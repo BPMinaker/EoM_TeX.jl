@@ -1,4 +1,4 @@
-function tex_sstf_pgftable(;folder="output",label="T:sstf",caption="")
+function tex_sstf_pgftable(;folder="output",label="T:sstf",caption="",name="Steady state gains",short_name=name)
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_sstf_pgftable.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ function tex_sstf_pgftable(;folder="output",label="T:sstf",caption="")
 ##--------------------------------------------------------------------
 
 s="\\begin{table}[hbtp]\n"
-s*="\\caption[Steady state gains]{\\textit{Steady state gains.} $caption}\\label{$label}\n"
+s*="\\caption[$short_name]{\\textit{$name.} $caption}\\label{$label}\n"
 s*="\\begin{center}\n"
 s*="\\begin{footnotesize}\n"
 s*="\\pgfplotstabletypeset[%\n"

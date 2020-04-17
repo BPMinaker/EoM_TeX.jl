@@ -1,4 +1,4 @@
-function tex_bode_pgfplot(sys;ins,outs,folder="output",label="F:bode",caption="")
+function tex_bode_pgfplot(systems;ins=1:1:length(systems[1].actuators),outs=1:1:length(systems[1].sensors),folder=systems[1].name,label="F:bode",caption="",name="Frequency response",short_name=name)
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_bode_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -12,8 +12,8 @@ function tex_bode_pgfplot(sys;ins,outs,folder="output",label="F:bode",caption=""
 ##
 ##--------------------------------------------------------------------
 
-in_names=EoM.name.(sys[1].system.actuators)
-out_names=EoM.name.(sys[1].system.sensors)
+in_names=EoM.name.(systems[1].actuators)
+out_names=EoM.name.(systems[1].sensors)
 vpts=EoM.vpt.(sys)
 
 nin=length(in_names)
@@ -69,13 +69,13 @@ s*="\\end{semilogxaxis}\n"
 s*="\\end{tikzpicture}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"
-s*="\\caption[Frequency response]{\\textit{Frequency response}"
+s*="\\caption[$short_name]{\\textit{$name.}"
 if nvpts>1
 	s*=" ("
 	s*=join(caps,", ")
 	s*=")"
 end
-s*=". $caption}\n"
+s*=" $caption}\n"
 s*="\\label{$label}\n"
 s*="\\end{figure}\n\n"
 

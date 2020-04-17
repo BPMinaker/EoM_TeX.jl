@@ -1,4 +1,4 @@
-function tex_eig_pgfplot(;folder="output",label="F:eigen",caption="")
+function tex_eig_pgfplot(;folder="output",label="F:eigen",caption="",name="Eigenvalues",short_name=name)
 ## Copyright (C) 2017, Bruce Minaker
 ## tex_eig_pgfplot.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ s*="\\addplot+[only marks,mark=*,mark options={black,scale=0.6,line width=1pt}] 
 s*="\\legend{Imaginary, Real}\n"
 s*="\\end{axis}\n"
 s*="\\end{tikzpicture}\n"
-s*="\\caption[Eigenvalues]{\\textit{Eigenvalues.} $caption}\n"
+s*="\\caption[$short_name]{\\textit{$name.} $caption}\n"
 s*="\\label{$label}\n"
 s*="\\end{footnotesize}\n"
 s*="\\end{center}\n"

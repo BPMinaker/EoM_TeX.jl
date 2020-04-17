@@ -1,4 +1,4 @@
-function tex_eig_pgftable(;folder="output",label="T:eigen",caption="")
+function tex_eig_pgftable(;folder="output",label="T:eigen",caption="",name="Eigenvalues",short_name=name)
 ## Copyright (C) 2017 Bruce Minaker
 ## tex_eig_table.jl is free software; you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -13,7 +13,7 @@ function tex_eig_pgftable(;folder="output",label="T:eigen",caption="")
 ##--------------------------------------------------------------------
 
 s="\\begin{table}[hbtp]\n"
-s*="\\caption[Eigenvalues]{\\textit{Eigenvalues.} $caption}\\label{$label}\n"
+s*="\\caption[$short_name]{\\textit{$name.} $caption}\n"
 s*="\\begin{center}\n"
 s*="\\begin{footnotesize}\n"
 s*="\\pgfplotstabletypeset[%\n"
