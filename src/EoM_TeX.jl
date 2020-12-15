@@ -32,6 +32,6 @@ include("tex_mass_props_pgftable.jl")
 include("tex_joint_props_pgftable.jl")
 include("tex_eqn.jl")
 include("tex_state_space.jl")
-include("write_mtx_ptrn")
+include("write_mtx_ptrn.jl")
 
 end
