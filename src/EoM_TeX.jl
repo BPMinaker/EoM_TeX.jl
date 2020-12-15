@@ -17,6 +17,7 @@ export tex_mass_props_pgftable
 export tex_joint_props_pgftable
 export tex_eqn
 export tex_state_space
+export write_mtx_ptrn
 
 include("write_report.jl")
 include("tex_bode_pgfplot.jl")
@@ -31,6 +32,6 @@ include("tex_mass_props_pgftable.jl")
 include("tex_joint_props_pgftable.jl")
 include("tex_eqn.jl")
 include("tex_state_space.jl")
-
+include("write_mtx_ptrn")
 
 end
