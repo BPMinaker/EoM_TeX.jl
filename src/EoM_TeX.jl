@@ -33,5 +33,9 @@ include("tex_joint_props_pgftable.jl")
 include("tex_eqn.jl")
 include("tex_state_space.jl")
 include("write_mtx_ptrn.jl")
+include("load_defln.jl")
+include("syst_props.jl")
+include("write_output.jl")
+include("weave_output.jl")
 
 end
