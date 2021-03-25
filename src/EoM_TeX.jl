@@ -2,6 +2,10 @@
 
 module EoM_TeX
 
+using LinearAlgebra
+using Dates
+using DelimitedFiles
+
 import EoM
 
 export write_report

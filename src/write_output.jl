@@ -21,7 +21,7 @@ function write_output(
 
     verbose = any(args .== :verbose)
     verbose && println("Writing output...")
-    dir_date, dir_time = setup(folder = folder, data = data)
+    dir_date, dir_time = EoM.setup(folder = folder, data = data)
     dir_data = joinpath(dir_date, dir_time)
 
     cmplx = 0  ## Creates variable for number of oscillatory modes
