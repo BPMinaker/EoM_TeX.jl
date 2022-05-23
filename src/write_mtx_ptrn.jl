@@ -8,8 +8,8 @@ function write_mtx_ptrn(file_name, mtx)
     str *= "\\matrix (name)[matrix anchor=south west,row sep={1ex,between origins},column sep={1ex,between origins},matrix of nodes,left delimiter={[},right delimiter={]},dot/.style={fill=black,circle,scale=0.2},empty/.style={fill=white,circle,scale=0.2}] at (-0.5ex,-0.5ex)\n"
 
     str *= "{\n"
-    for i = 1:n
-        for j = 1:m
+    for i in 1:n
+        for j in 1:m
             if j == m
                 cc = "\\\\"
             else

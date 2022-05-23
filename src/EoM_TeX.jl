@@ -9,7 +9,6 @@ using DelimitedFiles
 import EoM
 
 export write_report
-export write_output
 export tex_bode_pgfplot
 export tex_bode3_pgfplot
 export tex_eig_pgfplot
@@ -25,7 +24,6 @@ export tex_state_space
 export write_mtx_ptrn
 
 include("write_report.jl")
-include("write_output.jl")
 include("tex_bode_pgfplot.jl")
 include("tex_bode3_pgfplot.jl")
 include("tex_eig_pgfplot.jl")
@@ -39,8 +37,5 @@ include("tex_joint_props_pgftable.jl")
 include("tex_eqn.jl")
 include("tex_state_space.jl")
 include("write_mtx_ptrn.jl")
-include("load_defln.jl")
-include("syst_props.jl")
-include("weave_output.jl")
 
 end
