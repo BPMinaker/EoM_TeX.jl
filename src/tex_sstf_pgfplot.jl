@@ -1,4 +1,4 @@
-function tex_sstf_pgfplot(systems; ins=1:1:length(systems[1].actuators), outs=1:1:length(systems[1].sensors), folder="data", label="F:sstf", caption="", name="Steady state transfer functions", short_name=name)
+function tex_sstf_pgfplot(systems; ss = ones(Int64, length(system.sensors), length(system.actuators)), label="F:sstf", caption="", name="Steady state transfer functions", short_name=name)
     ## Copyright (C) 2017, Bruce Minaker
     ## tex_sstf_pgfplot.jl is free software; you can redistribute it and/or modify it
     ## under the terms of the GNU General Public License as published by
@@ -18,6 +18,13 @@ function tex_sstf_pgfplot(systems; ins=1:1:length(systems[1].actuators), outs=1:
     nin = length(in_names)
     nout = length(out_names)
 
+    ins = 1:1:nin
+    outs = 1:1:nout
+
+    if size(ss, 1) > nout || size(ss, 2) > nin
+        error("Steady state plot request dimensions are incompatible with system!")
+    end
+
     s = "\\begin{figure}[htbp]\n"
     s *= "\\begin{center}\n"
     s *= "\\begin{footnotesize}\n"
@@ -28,8 +35,10 @@ function tex_sstf_pgfplot(systems; ins=1:1:length(systems[1].actuators), outs=1:
     s *= "legend style={at={(1.0,1.03)},anchor=south east},legend columns=-1,cycle list name=linestyles*]\n"
     for i in ins
         for j in outs
-            s *= "\\addplot+[black,line width=1pt,mark=none] table[x=speed,y=$((i - 1) * nout + j)]{$folder/sstf.out};\n"
-            s *= "\\addlegendentry{\$$(out_names[j])/$(in_names[i])\$}\n"
+            if ss[j, i] == 1
+                s *= "\\addplot+[black,line width=1pt,mark=none] table[x=vpt,y=$((i - 1) * nout + j)]{sstf.out};\n"
+                s *= "\\addlegendentry{\$$(out_names[j])/$(in_names[i])\$}\n"
+            end
         end
     end
     s *= "\\end{axis}\n"
